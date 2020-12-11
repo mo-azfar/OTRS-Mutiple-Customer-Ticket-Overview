@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<otrs_config version="2.0" init="Config">
+<Setting Name="Ticket::Frontend::CustomerTicketOverview2Sortable" Required="0" Valid="1" ReadOnly="1">
+        <Description Translatable="1">Controls if customers have the ability to sort their tickets. This setting will be based on Ticket::Frontend::CustomerTicketOverviewSortable</Description>
+        <Navigation>Frontend::Customer::View::TicketOverview2</Navigation>
+        <Value>
+            <Item ValueType="Select" SelectedID="Sortable">
+                <Item ValueType="Option" Value="0" Translatable="1">No</Item>
+                <Item ValueType="Option" Value="Sortable" Translatable="1">Yes</Item>
+            </Item>
+        </Value>
+    </Setting>
+	<Setting Name="Ticket::Frontend::CustomerTicketOverview2CustomEmptyText" Required="0" Valid="0">
+        <Description Translatable="1">Custom text for the page shown to customers that have no tickets yet (if you need those text translated add them to a custom translation module).</Description>
+        <Navigation>Frontend::Customer</Navigation>
+        <Value>
+            <Hash>
+                <Item Key="Title" Translatable="1">Welcome!</Item>
+                <Item Key="Text" Translatable="1">Please click the button below to create your first ticket.</Item>
+                <Item Key="Button" Translatable="1">Create your first ticket</Item>
+            </Hash>
+        </Value>
+    </Setting>
+	<Setting Name="Ticket::Frontend::CustomerTicketOverview2###ColumnHeader" Required="0" Valid="1">
+        <Description Translatable="1">Shows either the last customer article's subject or the ticket title in the small format overview.</Description>
+        <Navigation>Frontend::Customer::View::TicketOverview2</Navigation>
+        <Value>
+            <Item ValueType="Select" SelectedID="TicketTitle">
+                <Item ValueType="Option" Value="LastCustomerSubject" Translatable="1">Last customer subject</Item>
+                <Item ValueType="Option" Value="TicketTitle" Translatable="1">Ticket title</Item>
+            </Item>
+        </Value>
+    </Setting>
+    <Setting Name="Ticket::Frontend::CustomerTicketOverview2###Owner" Required="1" Valid="1">
+        <Description Translatable="1">Show the current owner in the customer interface.</Description>
+        <Navigation>Frontend::Customer::View::TicketOverview2</Navigation>
+        <Value>
+            <Item ValueType="Checkbox">1</Item>
+        </Value>
+    </Setting>
+    <Setting Name="Ticket::Frontend::CustomerTicketOverview2###Queue" Required="1" Valid="1">
+        <Description Translatable="1">Show the current queue in the customer interface.</Description>
+        <Navigation>Frontend::Customer::View::TicketOverview2</Navigation>
+        <Value>
+            <Item ValueType="Checkbox">1</Item>
+        </Value>
+    </Setting>
+	<Setting Name="Ticket::Frontend::CustomerTicketOverview2###TicketTypeFilter" Required="1" Valid="1">
+        <Description Translatable="1">Only show list of ticket with defined ticket type below</Description>
+        <Navigation>Frontend::Customer::View::TicketOverview2</Navigation>
+        <Value>
+            <Array>
+                <Item>Request</Item>
+            </Array>
+        </Value>
+    </Setting>
+    <Setting Name="Ticket::Frontend::CustomerTicketOverview2###DynamicField" Required="0" Valid="1">
+        <Description Translatable="1">Dynamic fields shown in the ticket overview screen of the customer interface.</Description>
+        <Navigation>Frontend::Customer::View::TicketOverview2</Navigation>
+        <Value>
+            <Hash>
+                <DefaultItem ValueType="Select">
+                    <Item ValueType="Option" Value="0" Translatable="1">0 - Disabled</Item>
+                    <Item ValueType="Option" Value="1" Translatable="1">1 - Enabled</Item>
+                    <Item ValueType="Option" Value="2" Translatable="1">2 - Enabled and required</Item>
+                </DefaultItem>
+            </Hash>
+        </Value>
+    </Setting>
+	<Setting Name="CustomerFrontend::Module###CustomerTicketOverview2" Required="0" Valid="1">
+        <Description Translatable="1">Frontend module registration for the customer interface.</Description>
+        <Navigation>Frontend::Customer::ModuleRegistration</Navigation>
+        <Value>
+            <Item ValueType="FrontendRegistration">
+                <Hash>
+                    <Item Key="Group">
+                        <Array>
+                        </Array>
+                    </Item>
+                    <Item Key="GroupRo">
+                        <Array>
+                        </Array>
+                    </Item>
+                    <Item Key="Description" Translatable="1">Ticket Overview 2 of Customer</Item>
+                    <Item Key="NavBarName">Ticket Overview 2</Item>
+                    <Item Key="Title" Translatable="1">Ticket Overview 2</Item>
+                </Hash>
+            </Item>
+        </Value>
+	</Setting>   
+	<Setting Name="CustomerFrontend::Navigation###CustomerTicketOverview2###002-Ticket" Required="0" Valid="1">
+        <Description Translatable="1">Main menu item registration.</Description>
+        <Navigation>Frontend::Customer::ModuleRegistration::MainMenu</Navigation>
+        <Value>
+            <Array>
+                <DefaultItem ValueType="FrontendNavigation">
+                    <Hash>
+                    </Hash>
+                </DefaultItem>
+                <Item>
+                    <Hash>
+                        <Item Key="Group">
+                            <Array>
+                            </Array>
+                        </Item>
+                        <Item Key="GroupRo">
+                            <Array>
+                            </Array>
+                        </Item>
+                        <Item Key="Description" Translatable="1">Ticket Overview 2.</Item>
+                        <Item Key="Name" Translatable="1">Ticket Overview 2</Item>
+                        <Item Key="Link">Action=CustomerTicketOverview2;Subaction=MyTickets</Item>
+                        <Item Key="LinkOption"></Item>
+                        <Item Key="NavBar">Ticket Overview 2</Item>
+                        <Item Key="Type">Menu</Item>
+                        <Item Key="Block"></Item>
+                        <Item Key="AccessKey">m</Item>
+                        <Item Key="Prio">102</Item>
+                    </Hash>
+                </Item>
+            </Array>
+        </Value>
+    </Setting>
+</otrs_config>
